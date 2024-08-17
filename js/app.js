@@ -3,6 +3,7 @@ let click = false
 
 const messageOutput = document.querySelector('#message')
 messageOutput.classList.add('message-output')
+messageOutput.textContent = 'click then draw'
 
 const selectionSizePopBtn = document.querySelector('.size-selection-btn')
 const blackBtn = document.querySelector('.black')
@@ -87,6 +88,7 @@ function drawingBoards(e) {
         if (color == 'random') {
             e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
             console.log('drawing ' + e.target.style.backgroundColor)
+
         } else {
             e.target.style.backgroundColor = color
             console.log('drawing ' + e.target.style.backgroundColor)
