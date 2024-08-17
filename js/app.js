@@ -1,9 +1,23 @@
 let color = '#252525'
+let click = false
 
 const selectionSizePopBtn = document.querySelector('.size-selection-btn')
 const blackBtn = document.querySelector('.black')
 const randomBtn = document.querySelector('.random')
 const resetBtn = document.querySelector('.reset')
+
+// click then draw
+const drawingContainer = document.querySelector('#drawing-container')
+drawingContainer.addEventListener('click', (e) => {
+    if (e.target.tagName != 'BUTTON') {
+        click = !click
+        if (click) {
+            console.log('ready to draw')
+        } else {
+            console.log('click then draw')
+        }
+    }
+})
 
 selectionSizePopBtn.addEventListener('click', (e) => {
     const userInput = gettingUserInputSize()
@@ -61,13 +75,15 @@ function loadingContainerBoards(size) {
 }
 
 function drawingBoards(e) {
-    if (color == 'random') {
-        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-        console.log('drawing ' + e.target.style.backgroundColor)
-    } else {
-        e.target.style.backgroundColor = color
-        console.log('drawing ' + e.target.style.backgroundColor)
-
+    if (click) {
+        if (color == 'random') {
+            e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+            console.log('drawing ' + e.target.style.backgroundColor)
+        } else {
+            e.target.style.backgroundColor = color
+            console.log('drawing ' + e.target.style.backgroundColor)
+    
+        }
     }
 }
 
