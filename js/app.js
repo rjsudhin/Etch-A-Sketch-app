@@ -11,7 +11,7 @@ selectionSizePopBtn.addEventListener('click', (e) => {
 })
 
 blackBtn.addEventListener('mousedown', () => {
-    let colorChoice = color
+    let colorChoice = '#252525'
     console.log('black color selected')
     changingColorChoice(colorChoice)
 })
