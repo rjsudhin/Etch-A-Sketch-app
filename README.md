@@ -18,3 +18,6 @@ This simple Etch A Sketch project uses the following basic web technologies:
     HTML: Markup for the structure of the application.
     CSS: Styling for the canvas and button.
     JavaScript: Logic for drawing and controlling the cursor.
+
+Live Preview 
+    https://rjsudhin.github.io/Etch-A-Sketch-app/
