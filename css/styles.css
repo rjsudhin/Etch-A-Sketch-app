@@ -43,6 +43,12 @@ body {
     background-color: rgb(219, 156, 156);
 }
 
+#message {
+    text-align: center;
+    color: #eee;
+    text-transform: uppercase;
+}
+
 #drawing-container {
     width: 400px;
     height: 400px;
