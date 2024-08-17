@@ -1,10 +1,24 @@
 let color = '#252525'
 
 const selectionSizePopBtn = document.querySelector('.size-selection-btn')
+const blackBtn = document.querySelector('.black')
+const randomBtn = document.querySelector('.random')
 
 selectionSizePopBtn.addEventListener('click', (e) => {
     const userInput = gettingUserInputSize()
     loadingContainerBoards(userInput)
+})
+
+blackBtn.addEventListener('mousedown', () => {
+    let colorChoice = color
+    console.log('black color selected')
+    changingColorChoice(colorChoice)
+})
+
+randomBtn.addEventListener('mousedown', () => {
+    let colorChoice = 'random'
+    console.log('random color selected')
+    changingColorChoice(colorChoice)
 })
 
 // making 16 x 16 display when load every time
@@ -42,6 +56,17 @@ function loadingContainerBoards(size) {
 }
 
 function drawingBoards(e) {
-    e.target.style.backgroundColor = color
-    console.log('drawing ' + e.target.style.backgroundColor)
+    if (color == 'random') {
+        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+        console.log('drawing ' + e.target.style.backgroundColor)
+    } else {
+        e.target.style.backgroundColor = color
+        console.log('drawing ' + e.target.style.backgroundColor)
+
+    }
+}
+
+
+function changingColorChoice(choice) {
+    color = choice
 }
