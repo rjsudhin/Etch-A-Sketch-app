@@ -3,6 +3,7 @@ let color = '#252525'
 const selectionSizePopBtn = document.querySelector('.size-selection-btn')
 const blackBtn = document.querySelector('.black')
 const randomBtn = document.querySelector('.random')
+const resetBtn = document.querySelector('.reset')
 
 selectionSizePopBtn.addEventListener('click', (e) => {
     const userInput = gettingUserInputSize()
@@ -19,6 +20,10 @@ randomBtn.addEventListener('mousedown', () => {
     let colorChoice = 'random'
     console.log('random color selected')
     changingColorChoice(colorChoice)
+})
+
+resetBtn.addEventListener('mousedown', () => {
+    removingAllColors()
 })
 
 // making 16 x 16 display when load every time
@@ -69,4 +74,11 @@ function drawingBoards(e) {
 
 function changingColorChoice(choice) {
     color = choice
+}
+
+function removingAllColors() {
+    const allBoards = document.querySelectorAll('.board')
+    allBoards.forEach((board) => {
+        board.style.backgroundColor = '#615c5c00'
+    })
 }
