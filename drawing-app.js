@@ -2,7 +2,12 @@ const sizePopupBtn = document.querySelector('.size-popup')
 const drawingGrid = document.querySelector('#drawingGrid')
 const randomColorsBtn = document.querySelector('.random-colors')
 const blackColorBtn = document.querySelector('.black')
+const output = document.querySelector('.output')
+
+output.textContent = 'Click the container then Draw'
+
 let color = ''
+let click = false
 
 loadingGridContainer(16)
 
@@ -18,6 +23,21 @@ function loadingGridContainer(size) {
     drawingGrid.appendChild(box)
   }
 }
+
+// click then draw feature
+drawingGrid.addEventListener('click', (e) => {
+  console.log(e.target.tagName)
+  if (e.target.tagName == 'DIV') {
+    click = !click
+    if (click) {
+      console.log('ready to draw')
+      output.textContent = 'Ready to Draw'
+    } else {
+      console.log('click then draw')
+      output.textContent = 'Click the container then draw'
+    }
+  }
+})
 
 // size popup button clicks
 sizePopupBtn.addEventListener('click', () => {
@@ -65,9 +85,11 @@ function gettingNewGrid() {
 
 // drawing each box when the event occurs
 function drawingBoxes(e) {
-  if (color == 'random') {
-    e.target.style.backgroundColor = gettingRandomColors()
-  } else {  
-    e.target.style.backgroundColor = '#252525'
+  if (click) {
+    if (color == 'random') {
+      e.target.style.backgroundColor = gettingRandomColors()
+    } else {  
+      e.target.style.backgroundColor = '#252525'
+    }
   }
 }
