@@ -1,6 +1,8 @@
 const sizePopupBtn = document.querySelector('.size-popup')
 const drawingGrid = document.querySelector('#drawingGrid')
+const randomColorsBtn = document.querySelector('.random-colors')
 
+let color = ''
 
 loadingGridContainer(16)
 
@@ -24,6 +26,18 @@ sizePopupBtn.addEventListener('click', () => {
 
 })
 
+// random colors button clicks
+randomColorsBtn.addEventListener('click', () => {
+  color = 'random'
+})
+
+function gettingRandomColors() {
+  let r = Math.floor(Math.random() * 256) // random between 0 - 255
+  let g = Math.floor(Math.random() * 256) // random between 0 - 255
+  let b = Math.floor(Math.random() * 256) // random between 0 - 255
+  return `rgb(${r},${g},${b})`
+}
+
 // getting new size of grid with prompt result
 function gettingNewGrid() {
   let inputResult = false
@@ -46,6 +60,9 @@ function gettingNewGrid() {
 
 // drawing each box when the event occurs
 function drawingBoxes(e) {
-  console.log(e)
-  e.target.style.backgroundColor = '#252525'
+  if (color == 'random') {
+    e.target.style.backgroundColor = gettingRandomColors()
+  } else {
+    e.target.style.backgroundColor = '#252525'
+  }
 }
